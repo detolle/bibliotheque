@@ -1,0 +1,23 @@
+dans le context.xml de tomcat
+<ResourceLink name="jdbc/dsMonApplication" global="jdbc/dsMaBase" type="javax.sql.DataSource" />
+
+	
+dans le server.xml
+dans   <GlobalNamingResources>
+<Resource auth="Container"  name="jdbc/dsMaBase1" 
+	type="javax.sql.DataSource" 
+	driverClassName="org.hsqldb.jdbcDriver" 
+	maxActive="100" maxIdle="30" maxWait="10000"
+	url="jdbc:hsqldb:file:C:\hsqldb\data\maBase" username="amok" password="amok" />
+
+<Resource auth="Container" name="jdbc/dsMaBase" 
+	type="javax.sql.DataSource"
+	driverClassName="com.mysql.jdbc.Driver"
+	initialSize="5" username="amok" password="amok" 
+	url="jdbc:mysql://localhost:3306/biblio?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Europe/Paris"/>
+
+<Resource auth="Container" name="jdbc/dsMaBase" 
+	type="javax.sql.DataSource"
+	driverClassName="oracle.jdbc.driver.OracleDriver"
+	initialSize="5" username="biblio" password="biblio" 
+	url="jdbc:oracle:thin:@localhost:1521/XEPDB1"/>	    	      
